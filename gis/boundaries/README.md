@@ -1,0 +1,2 @@
+# Boundary provenance
+The seed installs a synthetic rectangle around coordinates 9.965, 76.30. It is a test fixture and does not represent any actual district, local body or ward. No official government boundaries are bundled. DEMO_MODE=false excludes unverified boundaries and rules from routing. Admin import accepts WGS84 GeoJSON Polygon or MultiPolygon, validates topology, and stores both import source and PostGIS geometry. Obtain authorized administrative data and record a verified source before real use.

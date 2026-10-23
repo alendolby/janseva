@@ -1,0 +1,19 @@
+# Hardened deployment starting point. Put the frontend behind your HTTPS reverse proxy.
+services:
+  backend:
+    environment:
+      DEMO_MODE: "false"
+      RATE_LIMIT_BACKEND: redis
+    restart: always
+  worker:
+    environment:
+      DEMO_MODE: "false"
+    restart: always
+  beat:
+    environment:
+      DEMO_MODE: "false"
+    restart: always
+  minio:
+    ports: !reset []
+  frontend:
+    restart: always

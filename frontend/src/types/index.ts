@@ -1,0 +1,6 @@
+export type Role='CITIZEN'|'OFFICE'|'ADMIN';
+export interface User {id:string;email:string;name:string;role:Role;office_id:string|null;active:boolean;verified:boolean}
+export interface Case {public_case_id:string;title:string;description:string;status:string;priority:string;category:string|null;category_id:string|null;office:string|null;assigned_office_id:string|null;assigned_officer_id:string|null;severity_score:number;routing_review_required:boolean;sla_deadline:string|null;created_at:string;updated_at:string;resolution_note:string|null;resolved_at:string|null}
+export interface CaseDetail extends Case {location:{latitude:number;longitude:number;address:string;ward_id:string|null}|null;ai:{confidence:number;model:string;baseline:boolean}|null;severity:{factors:Record<string,number>;method:string}|null;evidence:{id:string;filename:string;mime:string;kind:string}[];timeline:{action:string;note:string;created_at:string;internal:boolean}[];related_reports:number;escalations:{level:number;reason:string}[];feedback:{rating:number;comment:string}|null}
+export type Catalog=Record<string,{id:string;name:string;office_id?:string;[key:string]:unknown}[]>;
+export interface CasePage{items:Case[];total:number;page:number;size:number}

@@ -1,0 +1,101 @@
+name: janaseva
+services:
+  postgres:
+    image: postgis/postgis:16-3.5
+    platform: linux/amd64
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-janaseva}
+      POSTGRES_USER: ${POSTGRES_USER:-janaseva}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run scripts/configure.py first}
+    volumes: ["postgres_data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes: ["redis_data:/data"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  minio:
+    image: minio/minio:RELEASE.2025-09-07T16-13-09Z
+    command: server /data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${STORAGE_ACCESS_KEY:?Run scripts/configure.py first}
+      MINIO_ROOT_PASSWORD: ${STORAGE_SECRET_KEY:?Run scripts/configure.py first}
+    ports: ["127.0.0.1:9001:9001"]
+    volumes: ["minio_data:/data"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  storage-init:
+    image: minio/mc:RELEASE.2025-08-13T08-35-41Z
+    env_file: .env
+    entrypoint: ["/bin/sh", "-c"]
+    command: ['mc alias set local http://minio:9000 "$$STORAGE_ACCESS_KEY" "$$STORAGE_SECRET_KEY" && mc mb --ignore-existing "local/$$STORAGE_BUCKET"']
+    depends_on:
+      minio: {condition: service_healthy}
+  backend:
+    build: {context: ., dockerfile: docker/backend.Dockerfile}
+    env_file: .env
+    volumes: ["uploads:/srv/backend/uploads"]
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+      storage-init: {condition: service_completed_successfully}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+    restart: unless-stopped
+  worker:
+    build: {context: ., dockerfile: docker/backend.Dockerfile}
+    command: celery -A app.tasks.jobs.celery worker --loglevel=info --concurrency=2
+    env_file: .env
+    depends_on:
+      backend: {condition: service_healthy}
+    restart: unless-stopped
+  beat:
+    build: {context: ., dockerfile: docker/backend.Dockerfile}
+    command: celery -A app.tasks.jobs.celery beat --loglevel=info --schedule=/tmp/celerybeat-schedule
+    env_file: .env
+    depends_on:
+      backend: {condition: service_healthy}
+    restart: unless-stopped
+  frontend:
+    build: {context: ., dockerfile: docker/frontend.Dockerfile}
+    ports: ["127.0.0.1:8080:80"]
+    depends_on:
+      backend: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost/"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    profiles: ["monitoring"]
+    volumes: ["./docker/prometheus.yml:/etc/prometheus/prometheus.yml:ro", "prometheus_data:/prometheus"]
+  grafana:
+    image: grafana/grafana:12.1.0
+    profiles: ["monitoring"]
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-}
+    ports: ["127.0.0.1:3000:3000"]
+    volumes: ["grafana_data:/var/lib/grafana", "./docker/grafana:/etc/grafana/provisioning:ro"]
+volumes:
+  postgres_data:
+  redis_data:
+  minio_data:
+  uploads:
+  prometheus_data:
+  grafana_data:

@@ -1,0 +1,9 @@
+JANASEVA academic prototype
+
+1. Extract the entire janaseva folder.
+2. Open README.md.
+3. Windows: read docs/SETUP_WINDOWS.md. macOS/Linux: read docs/SETUP_LOCAL.md.
+4. Run scripts/configure.py from the project root to generate local secrets and demo login passwords.
+5. Use Docker Compose for PostgreSQL/PostGIS, Redis, Celery and MinIO, or portable local development for the tested workflow.
+6. See docs/TEST_REPORT.md and docs/QUALITY_GATE.md for verified checks and infrastructure limitations.
+7. Open docs/presentation.pptx for the final-year presentation and docs/ACADEMIC_REPORT.md for the report.

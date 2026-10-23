@@ -1,0 +1,1 @@
+import {lazy,Suspense} from 'react';import type {MapPoint} from './Map';const Map=lazy(()=>import('./Map'));export function CivicMap(props:{points?:MapPoint[];onPick?:(lat:number,lon:number)=>void}){return <Suspense fallback={<p>Loading map…</p>}><Map {...props}/></Suspense>}

@@ -1,0 +1,15 @@
+{
+  "totals": {
+    "covered_lines": 1108,
+    "num_statements": 1238,
+    "percent_covered": 89.49919224555735,
+    "percent_covered_display": "89",
+    "missing_lines": 130,
+    "excluded_lines": 1,
+    "percent_statements_covered": 89.49919224555735,
+    "percent_statements_covered_display": "89"
+  },
+  "backend_tests": 24,
+  "frontend_tests": 7,
+  "browser_tests": 2
+}

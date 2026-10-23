@@ -1,0 +1,109 @@
+text,category,split
+There is a large pothole near the school entrance and vehicles are swerving to avoid it,Pothole,train
+A deep pothole in the busy road is damaging tyres,Pothole,train
+The street has a pothole filled with rainwater,Pothole,train
+Please repair the pothole outside the bus stop,Pothole,train
+A dangerous hole in the road caused an accident,Pothole,train
+Cars cannot safely cross a pothole near the hospital,Pothole,train
+The pothole in front of my house is getting deeper,Pothole,train
+A crater in the asphalt needs urgent filling,Pothole,train
+Motorcycles hit a pothole near the market every day,Pothole,train
+An open pothole has appeared on the main street,Pothole,train
+Rain has exposed a deep pothole by the school,Pothole,train
+A road cavity is causing vehicles to swerve,Pothole,train
+Please fill the dangerous pothole on this busy lane,Pothole,train
+A large pothole makes the junction unsafe for children,Pothole,train
+A deep pothole outside the clinic is causing traffic to swerve,Pothole,test
+The pothole on the school road needs repair urgently,Pothole,test
+Cars fall into a large crater on the road surface,Pothole,test
+A dangerous pothole filled with water blocks the lane,Pothole,test
+Garbage is piled up outside our building,Garbage,train
+Waste collection has stopped for a week,Garbage,train
+There is a heap of rubbish by the market,Garbage,train
+Overflowing bins smell bad near the school,Garbage,train
+Rotting trash attracts rats and flies,Garbage,train
+Please collect the dumped household waste,Garbage,train
+Plastic garbage covers the empty public plot,Garbage,train
+The dustbin is full and rubbish spills onto the street,Garbage,train
+Solid waste has accumulated around the bus shelter,Garbage,train
+Someone dumped bags of garbage beside the park,Garbage,train
+Food waste is rotting on the pavement,Garbage,train
+Uncollected rubbish is creating a health risk,Garbage,train
+The waste bin near the hospital is overflowing,Garbage,train
+A pile of garbage blocks the walkway,Garbage,train
+Please remove the rotting garbage near our street,Garbage,test
+Overflowing trash bins attract flies outside the market,Garbage,test
+Household waste has not been collected from this lane,Garbage,test
+Rubbish bags cover the public pavement,Garbage,test
+The streetlight outside my home is broken,Streetlight,train
+Our street lamps do not turn on at night,Streetlight,train
+A damaged lamp post has exposed wire,Streetlight,train
+The streetlight keeps flickering at the junction,Streetlight,train
+The road is dark because the street light has failed,Streetlight,train
+Please replace the bulb on the public lamp,Streetlight,train
+Broken street lighting makes the school lane unsafe,Streetlight,train
+The lamp on the bridge has stopped working,Streetlight,train
+All streetlights on this stretch are off,Streetlight,train
+A leaning light pole threatens pedestrians,Streetlight,train
+The public light near the bus stop is not working,Streetlight,train
+Street lamps remain off after sunset,Streetlight,train
+A streetlight is sparking near the hospital,Streetlight,train
+The light pole has a broken fixture,Streetlight,train
+A broken streetlight leaves the junction dark at night,Streetlight,test
+Please fix the flickering public lamp outside the school,Streetlight,test
+Exposed wire hangs from a damaged streetlight,Streetlight,test
+The street lamps on this lane have failed,Streetlight,test
+Heavy rain caused waterlogging in our street,Waterlogging,train
+Standing water blocks the entrance to the school,Waterlogging,train
+The junction is flooded after every rainfall,Waterlogging,train
+Rainwater is pooling on the road,Waterlogging,train
+Waterlogging makes the bus stop inaccessible,Waterlogging,train
+A flooded lane prevents vehicles from passing,Waterlogging,train
+Water remains stagnant outside the hospital,Waterlogging,train
+The public square is covered in standing rainwater,Waterlogging,train
+Floodwater has collected around houses,Waterlogging,train
+Persistent waterlogging blocks pedestrian access,Waterlogging,train
+The street is submerged after rain,Waterlogging,train
+Rainwater has no outlet and floods the playground,Waterlogging,train
+Stagnant water covers the main crossing,Waterlogging,train
+A flooded road is unsafe for children,Waterlogging,train
+Waterlogging after rain blocks the school gate,Waterlogging,test
+Standing rainwater has flooded the busy intersection,Waterlogging,test
+The lane remains submerged following heavy rainfall,Waterlogging,test
+Stagnant floodwater prevents vehicles entering the street,Waterlogging,test
+The storm drain is blocked with silt,Drainage,train
+Sewage is overflowing from the drainage pipe,Drainage,train
+A broken drain cover is dangerous for children,Drainage,train
+The drainage channel needs cleaning,Drainage,train
+Our drain is clogged and dirty water flows onto the road,Drainage,train
+Please repair the collapsed sewer pipe,Drainage,train
+An open drain near the school has no cover,Drainage,train
+Blocked drainage causes sewage to back up,Drainage,train
+The gutter is choked with leaves,Drainage,train
+A damaged culvert prevents drainage,Drainage,train
+Sewage leaks from a drain outside the hospital,Drainage,train
+The roadside drainage canal is obstructed,Drainage,train
+The sewer manhole is overflowing,Drainage,train
+A broken drain pipe leaks wastewater,Drainage,train
+Blocked sewage drains overflow onto the street,Drainage,test
+Please replace the dangerous missing drain cover,Drainage,test
+The storm drainage channel is clogged with debris,Drainage,test
+A collapsed sewer line leaks dirty water,Drainage,test
+The road surface has broken into loose gravel,Road Damage,train
+Asphalt is peeling from the busy road,Road Damage,train
+The road has long cracks across its surface,Road Damage,train
+Please repair the damaged pavement on this street,Road Damage,train
+Entire sections of road have collapsed,Road Damage,train
+Uneven road surfacing causes vehicles to skid,Road Damage,train
+The road shoulder is washed away,Road Damage,train
+Damaged asphalt makes the road unsafe,Road Damage,train
+The street surface is badly eroded,Road Damage,train
+Road subsidence near the bridge needs repair,Road Damage,train
+The road is crumbling outside the hospital,Road Damage,train
+A damaged road section needs resurfacing,Road Damage,train
+Loose stones cover the broken road surface,Road Damage,train
+The road near the school has severe cracks,Road Damage,train
+The asphalt road surface is damaged and peeling,Road Damage,test
+Deep cracks have appeared across the busy road,Road Damage,test
+Please resurface the crumbling road near the school,Road Damage,test
+Vehicles skid over loose gravel on the damaged pavement,Road Damage,test
